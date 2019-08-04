@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linear Hashing</title>
+    <link href="bootstrap/bootstrap.min.css" rel="stylesheet">
+    <style>
+      body {
+        background-color: rgb(89, 17, 99);
+      }
+
+      h1 {
+        color: goldenrod;
+      }
+
+      canvas {
+        background-color: rgb(74, 23, 105);
+      }
+
+      .modal-header,
+      h4,
+      .close {
+        background-color: red;
+        color: white !important;
+        text-align: center;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+
+  <body style="padding: 0; margin: 0;">
+    <h1 align="center">Linear Hashing</h1>
+    <br>
+    <!-- Modal -->
+    <div class="modal fade" id="errorModel" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Error Occurred</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body" id="model-body">
+            <p></p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default btn-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="bootstrap/jquery-3.3.1.slim.min.js"></script>
+    <script src="bootstrap/popper.min.js"></script>
+    <script src="bootstrap/bootstrap.min.js"></script>
+
+    <script src="p5/p5.min.js"></script>
+    <script src="p5/p5.dom.min.js"></script>
+    <script src="LinearHashing.js"></script>
+    <script src="sketch.js"></script>
+  </body>
+
+</html>
