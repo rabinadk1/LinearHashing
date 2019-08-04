@@ -28,14 +28,13 @@ function setup() {
             try {
                 linear.insert(key)
                 console.log(`${key} inserted!`)
-                clearAndRedraw()
             } catch (error) {
                 console.error(error)
-                // alert(error)
                 modalPopUp(error)
             }
             insertTableInput.value('')
         }
+        clearAndRedraw()
     })
     searchTableInput = createInput()
     searchTableInput.position(insertTableInput.x, insertTableInput.y + insertTableInput.height + 8)
@@ -48,18 +47,14 @@ function setup() {
         const key = searchTableInput.value()
         if (key) {
             try {
-                linear.search(key)
-                // console.log(searchedIndex)
+                searchedIndex = linear.search(key)
             } catch (error) {
-                searchedIndex = null
-                clearAndRedraw()
                 console.error(error)
-                // alert(error)
                 modalPopUp(error)
             }
-            noLoop()
             searchTableInput.value('')
         }
+        clearAndRedraw()
     })
     deleteTableInput = createInput()
     deleteTableInput.position(searchTableInput.x, searchTableInput.y + searchTableInput.height + 8)
@@ -75,15 +70,12 @@ function setup() {
                 linear.delete(key)
                 console.log(`${key} deleted`)
             } catch (error) {
-                searchedIndex = null
-                clearAndRedraw()
                 console.error(error)
-                // alert(error)
                 modalPopUp(error)
             }
-            noLoop()
             deleteTableInput.value('')
         }
+        clearAndRedraw()
     })
     textAlign(CENTER, CENTER)
     textSize(30)
