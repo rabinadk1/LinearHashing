@@ -1,7 +1,6 @@
-var searchedIndex = null
+let searchedIndex = null
 
 function clearAndRedraw() {
-    frameRate(1)
     clear()
     redraw()
 }
@@ -20,7 +19,8 @@ function setup() {
     insertTableInput.position(20, 90)
     insertTableInput.attribute('placeholder', 'Insert Key')
     insertTableButton = createButton('Insert')
-    insertTableButton.position(insertTableInput.x + insertTableInput.width, insertTableInput.y + 3)
+    insertTableButton.position(insertTableInput.x + insertTableInput.width + 3, insertTableInput.y - 1)
+    insertTableButton.addClass('btn btn-primary')
     insertTableButton.mousePressed(() => {
         searchedIndex = null
         const key = insertTableInput.value()
@@ -33,16 +33,16 @@ function setup() {
                 console.error(error)
                 // alert(error)
                 modalPopUp(error)
-
             }
             insertTableInput.value('')
         }
     })
     searchTableInput = createInput()
-    searchTableInput.position(insertTableInput.x, insertTableInput.y + insertTableInput.height + 3)
+    searchTableInput.position(insertTableInput.x, insertTableInput.y + insertTableInput.height + 8)
     searchTableInput.attribute('placeholder', 'Search Key')
     searchTableButton = createButton('Search')
-    searchTableButton.position(searchTableInput.x + searchTableInput.width, searchTableInput.y + 3)
+    searchTableButton.position(searchTableInput.x + searchTableInput.width + 3, searchTableInput.y - 1)
+    searchTableButton.addClass('btn btn-primary')
     searchTableButton.mousePressed(() => {
         searchedIndex = null
         const key = searchTableInput.value()
@@ -57,14 +57,16 @@ function setup() {
                 // alert(error)
                 modalPopUp(error)
             }
+            noLoop()
             searchTableInput.value('')
         }
     })
     deleteTableInput = createInput()
-    deleteTableInput.position(searchTableInput.x, searchTableInput.y + searchTableInput.height + 3)
+    deleteTableInput.position(searchTableInput.x, searchTableInput.y + searchTableInput.height + 8)
     deleteTableInput.attribute('placeholder', 'Delete Key')
     deleteTableButton = createButton('Delete')
-    deleteTableButton.position(deleteTableInput.x + deleteTableInput.width, deleteTableInput.y + 3)
+    deleteTableButton.position(deleteTableInput.x + deleteTableInput.width + 3, deleteTableInput.y - 1)
+    deleteTableButton.addClass('btn btn-primary')
     deleteTableButton.mousePressed(() => {
         searchedIndex = null
         const key = deleteTableInput.value()
@@ -79,6 +81,7 @@ function setup() {
                 // alert(error)
                 modalPopUp(error)
             }
+            noLoop()
             deleteTableInput.value('')
         }
     })
@@ -118,7 +121,7 @@ function draw() {
 
 function getCirclePosition(index) {
     return Object.freeze({
-        x: deleteTableInput.x + 20 + (displayWidth / linear.tableSize) * index,
+        x: deleteTableInput.x + 30 + (displayWidth / linear.tableSize) * index,
         // y: deleteTableInput.y + deleteTableInput.height + 50
         y: windowHeight / 2.25
     })

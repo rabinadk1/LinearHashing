@@ -9,7 +9,7 @@ class LinearHashing {
     }
     insert(key) {
         key = parseInt(key)
-        if (!key)
+        if (isNaN(key))
             throw "Invalid Key!"
         console.log(key)
         for (let i = 0; i < this.tableSize; ++i) {
@@ -27,7 +27,7 @@ class LinearHashing {
     }
     search(key) {
         key = parseInt(key)
-        if (!key)
+        if (isNaN(key))
             throw "Invalid Key!"
         for (let i = 0; i < this.tableSize; ++i) {
             let hashedKey = this.hashFunction(key, i)
